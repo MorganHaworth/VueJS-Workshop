@@ -1,6 +1,15 @@
 <template>
     <div class="footer">
-        <p>Copyright © 2022. All rights reserved. Restaruant.</p>
+        <ul class="hours">
+            <li>Monday: 10AM - 10PM</li>
+            <li>Tuesday: 10AM - 10PM</li>
+            <li>Wednesday: 10AM - 10PM</li>
+            <li>Thursday: 10AM - 10PM</li>
+            <li>Friday: 10AM - 10PM</li>
+            <li>Saturday: 10AM - 10PM</li>
+            <li>Sunday: Closed</li>
+        </ul>
+        <p>Copyright © 2022. All rights reserved. The Restaruant.</p>
     </div>
 </template>
 
@@ -13,10 +22,16 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.hours {
+    color: var(--light);
+    list-style-type: none;
+    margin: 30px 0px;
+    padding: 0px;
+}
+
 .footer {
     background-color: var(--dark);
     padding: 30px;
-    margin-top: 30px;
     box-sizing: border-box;
     position: absolute;
     bottom: 0;

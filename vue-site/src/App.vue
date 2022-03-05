@@ -1,11 +1,11 @@
 <template>
   <div class="app">
     <nav>
+      <router-link to="/">The Restaurant<img alt="Pink Flower logo" src="@/assets/photos/flower-icon.png"></router-link>
       <router-link to="/">Home</router-link>
-      <router-link to="/menu">Menu</router-link>
+      <router-link to="/menu">Menu &amp; Order</router-link>
       <router-link to="/reviews">Reviews</router-link>
       <router-link to="/contact-us">Contact Us</router-link>
-      <router-link to="/"><img alt="Vue logo" src="@/assets/logo.png"></router-link>
     </nav>
     <router-view class="router-view"/>
     <FooterItem />
@@ -41,7 +41,7 @@ body {
   margin: 0;
 }
 nav {
-  padding: 30px;
+  padding: 30px 15px;
   height: 30px;
   background-color: var(--dark);
   display: flex;
@@ -67,7 +67,7 @@ nav a:hover {
 }
 
 nav a, img {
-  padding: 0px 30px;
+  padding: 0px 25px;
 }
 
 nav a.router-link-exact-active {
@@ -76,12 +76,11 @@ nav a.router-link-exact-active {
 nav a.router-link-exact-active:hover {
   color: var(--primary-darken);
 }
-
 img {
   max-height: 100%;
 }
 
 .router-view {
-  padding-bottom: 80px;
+  padding-bottom: 304px;
 }
 </style>

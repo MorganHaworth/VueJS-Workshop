@@ -1,8 +1,9 @@
 interface MenuItemInterface {
     price: number,
-    name: String,
-    ingredients: String,
-    id: number
+    name: string,
+    ingredients: string,
+    photo: string, 
+    id: string
 }
 
 export default MenuItemInterface

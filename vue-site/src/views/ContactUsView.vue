@@ -1,19 +1,19 @@
 <template>
   <div class="contact-us">
     <HeroBlock title="Contact Us" />
-    <EmailForm />
+    <ContactForm />
   </div>
 </template>
 
 <script lang="ts">
 import HeroBlock from '@/components/HeroBlock.vue'
-import EmailForm from '@/components/EmailForm.vue'
+import ContactForm from '@/components/ContactForm.vue'
 
 export default {
   name: 'ContactUsView',
   components: {
     HeroBlock,
-    EmailForm
+    ContactForm
   }
 }
 </script>

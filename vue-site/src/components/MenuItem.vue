@@ -1,82 +1,75 @@
 <template>
-    <div class="menu">
-        <p class="menu-name">{{menu.default.name}}</p>
-        <ul class="menu-list">
-            <li v-for="item in menu.default.menuItems" v-bind:key="item.id">
-                <div class="item-text">
-                    <p class="item-name">{{item.name}}</p>
-                    <p class="item-ingredients">{{item.ingredients}}</p>
-                    <p class="item-price">{{toUSD(item.price)}}</p>
-                </div>
-                <img class="item-image" src="@/assets/logo.png">
-            </li>
-        </ul>
+  <div class="menu-item">
+    <div class="item-text">
+      <p class="item-name">{{ name }}</p>
+      <p class="item-ingredients">{{ ingredients }}</p>
+      <p class="item-price">{{ toUSD(price) }}</p>
     </div>
+    <div class="image-container">
+      <img class="item-image" :src="photo" />
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
-import breakfastMenu from '../seeds/menus/breakfastMenu';
-import lunchMenu from '../seeds/menus/lunchMenu';
-import dinnerMenu from '../seeds/menus/dinnerMenu';
+import { defineComponent, computed } from "vue";
 
 export default defineComponent({
-    name: 'MenuItem',
-    props: {
-        menuChoice: String
-    }, 
-    setup(props) {
+  name: "MenuItem",
+  props: {
+    name: String,
+    ingredients: String,
+    price: Number,
+    photo: String
+  },
+  setup(props) {
 
-        const menu = computed(() => {
-            return require('@/seeds/menus/' + props.menuChoice)
-        })
-
-        const toUSD = ((price) => {
-            return '$' + price
-        })
-        console.log(menu)
-        console.log(menu.value)
-        console.log(menu.value.name)
-        return { menu, toUSD }
-    }
-})
+    const toUSD = (price: number) => {
+      return "$" + price;
+    };
+    return { toUSD };
+  },
+});
 </script>
 
 <style scoped>
-.menu-name {
-    font-size: 2em;
+.menu-item {
+  display: flex;
+  width: 100%;
+  cursor: pointer;
+  border: 5px solid transparent;
+  justify-content: space-between;
 }
 
-.menu-list {
-    list-style-type: none;
-    padding: 0;
-    margin-bottom: 30px;
-}
-
-.menu-list li {
-    width: 40%;
-    margin: 20px auto;
-    display: flex;
-    box-sizing: border-box;
-    text-align: left;
+.menu-item:hover {
+  border-top: 5px var(--primary) solid;
+  border-bottom: 5px var(--secondary) solid;
 }
 
 .item-image {
-    width: 30%;
-    padding: 0;
-    align-self: center;
+  width: 100%;
+  padding: 0;
+  align-self: center;
+}
+
+.image-container {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .item-text {
-    width: 70%;
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  width: 60%;
+  flex-direction: column;
 }
 
 .item-name {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
-.item-ingredients, .item-price {
-    margin: .5em 0;
+.item-ingredients,
+.item-price {
+  margin: 0.5em 0;
 }
 </style>
